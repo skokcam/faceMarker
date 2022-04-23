@@ -42,22 +42,7 @@ const initialState = {
 class App extends Component {
   constructor() {
     super();
-    this.state = initialState;
-    //Check if we are already logged
-    UserID.get().then(userID => {
-      if (userID !== undefined) {
-        fetch(`${Conf.server}/profile/${userID}`)
-        .then(response => response.json())
-        .then(userData => {
-          if (userData.id){
-            this.loadUser(userData);
-            this.setState({ route: 'home' });
-          } else {
-            console.log('Session data:',userData)
-          }       
-        });
-      } 
-    });
+    this.state = initialState;  
   }
 
   loadUser = (data) => {
@@ -129,6 +114,24 @@ class App extends Component {
     } 
     this.setState({route: route});
   }
+
+componentDidMount() {
+  //Check if we are already logged (session)
+   UserID.get().then(userID => {
+    if (userID !== undefined) {
+      fetch(`${Conf.server}/profile/${userID}`)
+      .then(response => response.json())
+      .then(userData => {
+        if (userData.id){
+          this.loadUser(userData);
+          this.setState({ route: 'home' });
+        } else {
+          console.log('Session data:',userData)
+        }       
+      });
+    } 
+  });
+}
 
   render() {
     const { isSignedIn, imageUrl, route, boxes } = this.state;
