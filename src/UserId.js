@@ -1,4 +1,5 @@
 //This is the class that deals with session "UserId" 
+import Conf from "./Conf";
 
 const UserId = new class userId {
     constructor(){
@@ -8,7 +9,7 @@ const UserId = new class userId {
     get = async () => {
         if (this.userID === undefined) {
             try {                
-                const response = await fetch('http://localhost:3000/session', {
+                const response = await fetch(`${Conf.server}/session`, {
                     method: 'get',
                     headers: {'Content-Type': 'application/json'},               
                     });
@@ -32,7 +33,7 @@ const UserId = new class userId {
     del = async () => {
         if (this.userID !== undefined) {            
             try {
-                const response = await fetch('http://localhost:3000/signout', {
+                const response = await fetch(`${Conf.server}/signout`, {
                     method: 'get',
                     headers: { 'Content-Type': 'application/json' },
                 });

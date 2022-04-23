@@ -1,6 +1,5 @@
 import React from 'react';
-
-const server = 'http://localhost:3000';
+import Conf from '../../Conf';
 
 class Register extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class Register extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch(`${server}/register`, {
+    fetch(`${Conf.server}/register`, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

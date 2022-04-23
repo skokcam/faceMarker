@@ -7,10 +7,10 @@ import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
-import UserID from './components/UserId';
+import UserID from './UserId';
+import Conf from './Conf';
 import './App.css';
 
-const server = 'http://localhost:3000';
 
 const particlesOptions = {
   particles: {
@@ -46,7 +46,7 @@ class App extends Component {
     //Check if we are already logged
     UserID.get().then(userID => {
       if (userID !== undefined) {
-        fetch(`${server}/profile/${userID}`)
+        fetch(`${Conf.server}/profile/${userID}`)
         .then(response => response.json())
         .then(userData => {
           if (userData.id){
@@ -103,7 +103,7 @@ class App extends Component {
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
 
-    fetch(`${server}/image`, {
+    fetch(`${Conf.server}/image`, {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
