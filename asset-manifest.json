@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/faceMarker/static/css/main.f9ea0915.chunk.css",
+    "main.js": "/faceMarker/static/js/main.78b4b12d.chunk.js",
+    "main.js.map": "/faceMarker/static/js/main.78b4b12d.chunk.js.map",
+    "runtime-main.js": "/faceMarker/static/js/runtime-main.604e6eab.js",
+    "runtime-main.js.map": "/faceMarker/static/js/runtime-main.604e6eab.js.map",
+    "static/css/2.6d7c7915.chunk.css": "/faceMarker/static/css/2.6d7c7915.chunk.css",
+    "static/js/2.985ecc5d.chunk.js": "/faceMarker/static/js/2.985ecc5d.chunk.js",
+    "static/js/2.985ecc5d.chunk.js.map": "/faceMarker/static/js/2.985ecc5d.chunk.js.map",
+    "index.html": "/faceMarker/index.html",
+    "static/css/2.6d7c7915.chunk.css.map": "/faceMarker/static/css/2.6d7c7915.chunk.css.map",
+    "static/css/main.f9ea0915.chunk.css.map": "/faceMarker/static/css/main.f9ea0915.chunk.css.map",
+    "static/js/2.985ecc5d.chunk.js.LICENSE.txt": "/faceMarker/static/js/2.985ecc5d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.604e6eab.js",
+    "static/css/2.6d7c7915.chunk.css",
+    "static/js/2.985ecc5d.chunk.js",
+    "static/css/main.f9ea0915.chunk.css",
+    "static/js/main.78b4b12d.chunk.js"
+  ]
+}
