@@ -7,7 +7,7 @@ import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
-import UserID from './UserId';
+import Session from './Session';
 import Conf from './Conf';
 import './App.css';
 
@@ -108,8 +108,9 @@ class App extends Component {
     if (route === 'signout') {      
       this.setState(initialState);
       route = 'signin';		
-      UserID.del().then(console.log);
+      Session.del().then(console.log);
     } else if (route === 'home') {
+      Session.set(this.state.user.id); //set current id to session
       this.setState({isSignedIn: true})
     } 
     this.setState({route: route});
@@ -117,19 +118,26 @@ class App extends Component {
 
 componentDidMount() {
   //Check if we are already logged (session)
-   UserID.get().then(userID => {
-    if (userID !== undefined) {
+  Session.get().then(userID => {
+    if (userID) {
       fetch(`${Conf.server}/profile/${userID}`)
       .then(response => response.json())
       .then(userData => {
         if (userData.id){
           this.loadUser(userData);
+          this.setState({isSignedIn: true});
           this.setState({ route: 'home' });
-        } else {
           console.log('Session data:',userData)
+        } else {
+          console.log('Session data/fault:',userData)
         }       
+      })
+      .catch(err => {
+        console.log('Session error:',err);
       });
-    } 
+    } else {
+      console.log('Session user id:', Session.userID);
+    }
   });
 }
 
